@@ -40,3 +40,78 @@
 .read-the-docs {
   color: #888;
 }
+
+.movie-card {
+  width: 240px;
+  height: 350px;
+  perspective: 1000px; /* Enables 3D effect */
+}
+
+.movie-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+.movie-card:hover .movie-inner {
+  transform: rotateY(180deg); /* Flips the card */
+}
+
+.movie-front, .movie-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.movie-front {
+  background: #222;
+}
+
+.movie-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+}
+
+.movie-back {
+  background: black; /* Keep background black */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+/* Shining gradient text */
+.overview-text {
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00ffee, #0048ff, #9b00ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 4s infinite linear;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2); /* Light glow effect */
+}
+
+/* Text shine animation */
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

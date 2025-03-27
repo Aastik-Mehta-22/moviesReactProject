@@ -54,12 +54,15 @@ const App = () => {
       }
 
       const data = await response.json();
+      
 
       if (data.response === 'FALSE') {
         setErrorMessage(data.Error || 'Failed to fetch movies');
         setMovieList([]);
         return;
       }
+
+      console.log(data)
 
       setMovieList(data.results || []);
       
